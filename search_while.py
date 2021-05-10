@@ -2,7 +2,6 @@ from typing import Any, Sequence
 
 def seq_search(a: Sequence, key: Any) -> int:
     i = 0
-
     while True :
         if i == len(a):
             return -1 #검색에 실패하여 -1을 반환
