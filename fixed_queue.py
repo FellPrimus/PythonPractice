@@ -9,10 +9,14 @@ class FixedQueue: #고정 길이 큐 구현
         pass
 
     def __init__(self, capacity: int) -> None: #큐 초기화
+        """
+
+        :rtype: object
+        """
         self.no = 0 #현제 데이터 개수
         self.front = 0 #맨 앞 원소 커서
         self.rear = 0 #맨 끝 원소 커서
-        self.capacity = 0 #큐 크기
+        self.capacity = capacity #큐 크기
         self.que = [None] * capacity #큐 본체
 
     def __len__(self) -> int: #큐에 있는 모든 데이터 개수 반환
