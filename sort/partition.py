@@ -30,7 +30,7 @@ def partition(a: MutableSequence) -> None:
 if __name__ == '__main__':
     print('배열을 나눕니다')
     num = int(input('원소 수를 입력 : '))
-    x = [None] * num #원소 수가 num인 배열 생성
+    x = [None] * num
 
     for i in range(num) :
         x[i] = int(input(f'x[{i}]: '))
