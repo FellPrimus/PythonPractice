@@ -96,5 +96,31 @@ class BinarySearchTree:
                 parent.right = left.left #left 삭제
         return True
 
+    def dump(self) -> None: #모든 노드를 키의 오름차순 출력
+        def print_subtree(node: Node): #node를 루트로 하는 서브트리 노드를 키의 오름차순으로 출력
+            if node is not None:
+                print_subtree(node.left) #왼쪽 서브트리 오름차순 출력
+                print(f'{node.key}  {node.value}')
+                print_subtree(node.right) #오른쪽 서브트리 오름차순 출력
+
+        print_subtree(self.root)
+
+    def min_key(self) -> Any:
+        if self.root is None:
+            return None
+        p = self.root
+        while p.left is not None:
+            p = p.left
+            return p.key
+
+    def max_key(self) -> Any:
+        if self.root is None:
+            return None
+        p = self.root
+        while p.right is not None:
+            p = p.right
+        return p.key
+
+
 
 
