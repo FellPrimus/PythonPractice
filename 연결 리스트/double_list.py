@@ -31,3 +31,52 @@ class DoubleLinkedList:
 
     def __contains__(self, data: Any) -> bool:
         return self.search(data) >= 0
+
+    def print_current_node(self) -> None: #현재 주목 노드 출력
+        if self.is_empty():
+            print('주목 노드가 없습니다')
+        else:
+            print(self.current.data)
+
+    def print(self) -> None: #모든 노드 출력
+        ptr = self.head.next #더미 노드의 뒤쪽 노드
+        while ptr is not self.head:
+            print(ptr.data)
+            ptr = ptr.next
+
+    def print_reverse(self) -> None: #모든 노드 역순출력
+        ptr = self.head.prev #더미 노드 앞쪽 노드
+        while ptr is not self.head:
+            print(ptr.data)
+            ptr = ptr.prev
+
+    def next(self) -> bool: #주목 노드 다음 칸으로 이동
+        if self.is_empty() or self.current.next is self.head:
+            return False #비어있거나 다음이 더미 노드일 경우 불가능
+        self.current = self.current.next
+        return True
+
+    def prev(self) -> bool: #주목 노드 한칸 앞 이동
+        if self.is_empty() or self.current.prev is self.head:
+            return False #비어있거나 앞이 더미 노드면 불가능
+        self.current = self.current.prev
+        return True
+
+    def add(self, data: Any) -> None: #주목 노드 뒤에 노드 삽입
+        node = Node(data, self.current, self.current.next)
+        self.current.next.prev = node
+        self.current.next = node
+        self.current = node
+        self.no += 1
+        
+    def add_first(self, data: Any) -> None: #맨 앞 노드 삽입
+        self.current = self.head #더미 노드 head의 바로 뒤에 삽입
+        self.add(data)
+
+    def add_last(self, data: Any) -> None: #맨 뒤 노드 삽입
+        self.current = self.head.prev
+        self.add(data)
+
+        
+
+
