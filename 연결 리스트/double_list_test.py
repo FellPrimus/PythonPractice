@@ -29,3 +29,48 @@ while True:
 
     elif menu == Menu.머리노드삭제:
         lst.remove_first()
+
+    elif menu == Menu.꼬리노드삭제:
+        lst.remove_last()
+
+    elif menu == Menu.주목노드출력:
+        lst.print_current_node()
+
+    elif menu == Menu.주목노드이동:
+        lst.next()
+
+    elif menu == Menu.주목노드역순이동:
+        lst.prev()
+
+    elif menu == Menu.주목노드삭제:
+        lst.remove_current_node()
+
+    elif menu == Menu.모든노드삭제:
+        lst.clear()
+
+    elif menu == Menu.검색:
+        pos = lst.searcH(int(input("검색할 값 입력 : ")))
+        if pos >= 0:
+            print(f'해당 값의 데이터는 {pos+1}번째에 위치함')
+        else:
+            print('해당 데이터가 없음')
+
+    elif menu == Menu.멤버십판단:
+        print('해당 값의 데이터는 포함되어' + (' 있음' if int(input('판단할 값 입력 : ')) in lst else ' 있지 않음'))
+
+    elif menu == Menu.모든노드출력:
+        lst.print()
+
+    elif menu == Menu.모든노드역순출력:
+        lst.print_reverse()
+
+    elif menu == Menu.모든노드스캔:
+        for e in lst:
+            print(e)
+
+    elif menu == Menu.모든노드역순스캔:
+        for e in reversed(lst):
+            print(e)
+
+    else:
+        break
