@@ -1,0 +1,16 @@
+a, b = map(int, input().split())
+
+#최대공약수
+def gcd(a, b):
+    if a < b:
+        (a, b) = (b, a)
+    while b != 0:
+        (a, b) = (b, a % b)
+    return a
+
+#최소공배수
+def lcm(a, b):
+    return a * b // gcd(a, b)
+
+print(gcd(a,b))
+print(lcm(a, b))
